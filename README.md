@@ -15,6 +15,6 @@ System for alerts generation when network attacks are detected.
 1. Create instance (for main VM) in AWS and assign public IP.
 2. Connect to VM (at the level of .pem file):
 ```
-ssh 3.73.103.223
+ssh -i <key-name>.pem kali@3.73.103.223
 ```
 3.
