@@ -16,7 +16,7 @@ System for alerts generation when network attacks are detected.
 ## Configuration
 
 ## Flink Application
-Build application in Maven:
+Build application:
 ```
 mvn package
 ```
