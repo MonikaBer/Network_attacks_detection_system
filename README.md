@@ -9,11 +9,34 @@ System for alerts generation when network attacks are detected.
 - Flink 1.15.0
 - Kafka
 - Honeypot Cowrie
+- MongoDB 4.4
 
 ## Documentation
 [doc](https://demo.hedgedoc.org/wWOoHAO3StmwlTl-1lvZyw)
 
 ## Configuration
+1. Install MongoDB
+```
+sudo apt-get install gnupg
+wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+```
+
+When the last command returned error related to _libssl1.0_:
+```
+echo "deb http://security.ubuntu.com/ubuntu impish-security main" | sudo tee /etc/apt/sources.list.d/impish-security.list
+sudo apt-get update
+sudo apt-get install libssl1.0
+sudo apt-get install -y mongodb-org
+```
+
+Start MongoDB:
+```
+sudo systemctl start mongod
+mongo
+```
 
 ## Flink Application
 Build application:

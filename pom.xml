@@ -64,6 +64,14 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!-- Add MongoDB dependencies here. -->
+
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.12.7</version>
+		</dependency>
+
 		<!-- Add logging framework, to produce console output when running in the IDE. -->
 		<!-- These dependencies are excluded from the application JAR by default. -->
 		<dependency>
