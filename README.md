@@ -31,7 +31,7 @@ Execute application in Flink:
 ./flink-1.15.0/bin/flink run Network_attacks_detection_system/target/attackdetection-0.1.jar
 ```
 
-Read Flink logs:
+Read Flink logs (and attack using Kali VM):
 ```
 tail -f flink-1.15.0/log/flink-psd-taskexecutor-0-psd-VirtualBox.log
 ```
