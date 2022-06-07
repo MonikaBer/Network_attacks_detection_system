@@ -7,8 +7,7 @@ import org.apache.flink.walkthrough.common.entity.Alert;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.streaming.util.serialization.SimpleStringSchema;
 import java.util.Properties;
-// import org.apache.flink.walkthrough.common.entity.Transaction;
-// import org.apache.flink.walkthrough.common.source.TransactionSource;
+
 
 public class FraudDetectionJob
 {
@@ -32,14 +31,6 @@ public class FraudDetectionJob
 			.process(new FraudDetector())
 			.name("attack-detector");
 
-		// DataStream<Transaction> transactions = env
-		// 	.addSource(new TransactionSource())
-		// 	.name("transactions");
-		// DataStream<Alert> alerts = transactions
-		// 	.keyBy(Transaction::getAccountId)
-		// 	.process(new FraudDetector())
-		// 	.name("fraud-detector");
-
 		alerts
 			.addSink(new AlertSink())
 			.name("send-alerts");
@@ -51,7 +42,6 @@ public class FraudDetectionJob
 	{
 		Properties props = new Properties();
 		props.setProperty("bootstrap.servers", kafkaAddress);
-		// props.setProperty("group.id", kafkaGroup);
 		FlinkKafkaConsumer<String> consumer = new FlinkKafkaConsumer<>(topic, new SimpleStringSchema(), props);
 
 		return consumer;

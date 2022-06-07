@@ -3,7 +3,8 @@ package spendreport;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-/** A simple log */
+
+/** A simple log from honeypot */
 @SuppressWarnings("unused")
 public final class HoneypotLog
 {
