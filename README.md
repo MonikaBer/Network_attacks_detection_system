@@ -31,6 +31,11 @@ Execute application in Flink:
 ./flink-1.15.0/bin/flink run Network_attacks_detection_system/target/attackdetection-0.1.jar
 ```
 
+Read Flink logs:
+```
+tail -f flink-1.15.0/log/flink-psd-taskexecutor-0-psd-VirtualBox.log
+```
+
 Stop Flink cluster:
 ```
 ./flink-1.15.0/bin/stop-cluster.sh
