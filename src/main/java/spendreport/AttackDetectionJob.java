@@ -9,7 +9,7 @@ import org.apache.flink.streaming.util.serialization.SimpleStringSchema;
 import java.util.Properties;
 
 
-public class FraudDetectionJob
+public class AttackDetectionJob
 {
 	final static String topic = "cowrie";
     final static String kafkaAddress = "localhost:9092";
@@ -28,7 +28,7 @@ public class FraudDetectionJob
 
 		DataStream<Alert> alerts = cowrieLogs
 			.keyBy(HoneypotLog::getHoneypotId)
-			.process(new FraudDetector())
+			.process(new AttackDetector())
 			.name("attack-detector");
 
 		alerts

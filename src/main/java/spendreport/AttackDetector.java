@@ -5,7 +5,7 @@ import org.apache.flink.util.Collector;
 import org.apache.flink.walkthrough.common.entity.Alert;
 
 
-public class FraudDetector extends KeyedProcessFunction<Long, HoneypotLog, Alert>
+public class AttackDetector extends KeyedProcessFunction<Long, HoneypotLog, Alert>
 {
 	private static final long serialVersionUID = 1L;
 
