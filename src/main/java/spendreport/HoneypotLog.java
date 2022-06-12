@@ -4,18 +4,13 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 
-/** A simple log from honeypot */
+/** Simple log from honeypot */
 @SuppressWarnings("unused")
 public final class HoneypotLog
 {
-
     private long honeypotId;
-
     private long timestamp;
-
     private String content;
-
-    public HoneypotLog() {}
 
     public HoneypotLog(long honeypotId, String content)
     {
@@ -31,32 +26,39 @@ public final class HoneypotLog
         this.content = content;
     }
 
-    public long getHoneypotId() {
+    public long getHoneypotId()
+    {
         return honeypotId;
     }
 
-    public void setHoneypotId(long honeypotId) {
+    public void setHoneypotId(long honeypotId)
+    {
         this.honeypotId = honeypotId;
     }
 
-    public long getTimestamp() {
+    public long getTimestamp()
+    {
         return timestamp;
     }
 
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(long timestamp)
+    {
         this.timestamp = timestamp;
     }
 
-    public String getContent() {
+    public String getContent()
+    {
         return content;
     }
 
-    public void setContent(String content) {
+    public void setContent(String content)
+    {
         this.content = content;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) {
             return true;
         } else if (o == null || getClass() != o.getClass()) {
@@ -69,12 +71,14 @@ public final class HoneypotLog
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return Objects.hash(honeypotId, timestamp, content);
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "HoneypotLog{"
                 + "honeypotId="
                 + honeypotId
