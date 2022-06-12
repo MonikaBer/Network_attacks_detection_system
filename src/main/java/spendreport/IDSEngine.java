@@ -53,8 +53,9 @@ public final class IDSEngine
 
         findTimestamp(idx2);
 
-        this.level = Alert.Level.LOW;
-        //set level
+        //set appropriate level of alert
+        CommandsMap cmdMap = new CommandsMap();
+        this.level = cmdMap.getCmdLevel(this.cmd);
     }
 
     private void processSSHConnect()
