@@ -20,20 +20,22 @@ public final class Alert
 
         public int getValue()
         {
-            return this.value;
+            return value;
         }
     }
 
     private long honeypotId;
-    private long timestamp;
-    private String content;
+    private String timestamp;
+    private String attacker;
+    private String command;
     private Level level;
 
-    public Alert(HoneypotLog honeypotLog, Level level)
+    public Alert(long id, String tstamp, String attacker, String cmd, Level level)
     {
-        this.honeypotId = honeypotLog.getHoneypotId();
-        this.timestamp = honeypotLog.getTimestamp();
-        this.content = honeypotLog.getContent();
+        this.honeypotId = id;
+        this.timestamp = tstamp;
+        this.attacker = attacker;
+        this.command = cmd;
         this.level = level;
     }
 
@@ -47,24 +49,34 @@ public final class Alert
         this.honeypotId = honeypotId;
     }
 
-    public long getTimestamp()
+    public String getTimestamp()
     {
         return timestamp;
     }
 
-    public void setTimestamp(long timestamp)
+    public void setTimestamp(String timestamp)
     {
         this.timestamp = timestamp;
     }
 
-    public String getContent()
+    public String getAttacker()
     {
-        return content;
+        return attacker;
     }
 
-    public void setContent(String content)
+    public void setAttacker(String attacker)
     {
-        this.content = content;
+        this.attacker = attacker;
+    }
+
+    public String getCommand()
+    {
+        return command;
+    }
+
+    public void setCommand(String command)
+    {
+        this.command = command;
     }
 
     public Level getLevel()
@@ -92,15 +104,16 @@ public final class Alert
         }
         Alert that = (Alert) o;
         return honeypotId == that.honeypotId
-                && timestamp == that.timestamp
-                && content.equals(that.content)
+                && timestamp.equals(that.timestamp)
+                && attacker.equals(that.attacker)
+                && command.equals(that.command)
                 && level == that.level;
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hash(honeypotId, timestamp, content, level);
+        return Objects.hash(honeypotId, timestamp, attacker, command, level);
     }
 
     @Override
@@ -109,7 +122,8 @@ public final class Alert
         return "Alert{"
                 + "honeypotId=" + honeypotId
                 + ", timestamp=" + timestamp
-                + ", content=" + content
+                + ", attacker=" + attacker
+                + ", command=" + command
                 + ", level=" + level
                 + '}';
     }

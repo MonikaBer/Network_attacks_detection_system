@@ -44,7 +44,8 @@ public class AlertsDB
     {
 		Document doc = new Document("honeypotId", alert.getHoneypotId())
 			.append("timestamp", alert.getTimestamp())
-			.append("content", alert.getContent())
+			.append("attacker", alert.getAttacker())
+			.append("command", alert.getCommand())
 			.append("level", alert.getLevelValue());
 
 		// insert alert into collection with alerts

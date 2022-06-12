@@ -11,12 +11,16 @@ public class AttackDetector extends KeyedProcessFunction<Long, HoneypotLog, Aler
 	@Override
 	public void processElement(HoneypotLog honeypotLog, Context context, Collector<Alert> collector) throws Exception
 	{
-		Alert alert = new Alert(honeypotLog, Alert.Level.MEDIUM);
-		collector.collect(alert);
+		IDSEngine idsEngine = new IDSEngine(honeypotLog.getHoneypotId(), honeypotLog.getContent());
+		Alert alert = idsEngine.processLog();
+		if (alert == null)
+			return;
 
-		System.out.println(alert.toString());
+		//System.out.println(alert.toString());
 
 		AlertsDB alertsDB = new AlertsDB();
 		alertsDB.insertAlert(alert);
+
+		collector.collect(alert);
 	}
 }
