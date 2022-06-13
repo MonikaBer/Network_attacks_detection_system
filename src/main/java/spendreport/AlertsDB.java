@@ -46,7 +46,7 @@ public class AlertsDB
 			.append("timestamp", alert.getTimestamp())
 			.append("attacker", alert.getAttacker())
 			.append("command", alert.getCommand())
-			.append("level", alert.getLevelValue());
+			.append("level", alert.getLevelString());
 
 		// insert alert into collection with alerts
 		this.alertsCollection.insertOne(doc);

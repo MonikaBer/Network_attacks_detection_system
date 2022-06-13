@@ -89,6 +89,11 @@ public final class Alert
         return level.getValue();
     }
 
+    public String getLevelString()
+    {
+        return level.name();
+    }
+
     public void setLevel(Level level)
     {
         this.level = level;

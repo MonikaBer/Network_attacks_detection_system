@@ -16,7 +16,7 @@ public class AttackDetector extends KeyedProcessFunction<Long, HoneypotLog, Aler
 		if (alert == null)
 			return;
 
-		//System.out.println(alert.toString());
+		System.out.println(alert.toString());
 
 		AlertsDB alertsDB = new AlertsDB();
 		alertsDB.insertAlert(alert);
