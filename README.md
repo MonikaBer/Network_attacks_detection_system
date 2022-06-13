@@ -2,7 +2,7 @@
 System for alerts generation when network attacks are detected.
 
 ## Requirements
-- 2 VMs with Ubuntu
+- 3 VMs with Ubuntu (one with Flink application)
 - 1 VM with Kali Linux
 - Java 11
 - Maven 3.6.3
