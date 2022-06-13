@@ -32,10 +32,21 @@ sudo apt-get install libssl1.0
 sudo apt-get install -y mongodb-org
 ```
 
-Start MongoDB:
+Start MongoDB daemon and client:
 ```
 sudo systemctl start mongod
 mongo
+```
+
+Within Mongo client:
+```
+show dbs
+```
+
+To show all alerts in Mongo:
+```
+use alertsDB
+db.alerts.find()
 ```
 
 ## Flink Application
